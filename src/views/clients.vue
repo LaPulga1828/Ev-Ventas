@@ -139,12 +139,12 @@ async function getclients() {
         }
 
     } catch (error) {
-        console.error('Error fetching data:', error)
+        console.error('Error fetching data:', error.response.data)
         $q.notify({
             color: 'red-5',
             textColor: 'white',
             icon: 'error',
-            message: 'Error al cargar los clients'
+            message: error.response?.data?.msg || "Error al cargar clientes" 
         })
     } finally {
         $q.loading.hide()

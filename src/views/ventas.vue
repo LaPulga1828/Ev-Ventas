@@ -270,8 +270,8 @@ async function cargarVentas() {
         rows.value = data.sales;
         console.log("✅ Ventas recibidas:", data.sales);
     } catch (err) {
-        console.error("❌ Error cargando ventas:", err.response?.data || err.message);
-        $q.notify({ type: "negative", message: err.response?.data?.message || "Error al cargar ventas" });
+        console.error("❌ Error cargando ventas:", err.response?.data || err.msg);
+        $q.notify({ type: "negative", message: err.response?.data?.msg || "Error al cargar ventas" });
     }
     finally {
         $q.loading.hide()
@@ -286,7 +286,7 @@ async function cargarClientes() {
     } catch (error) {
         $q.notify({
             type: "negative",
-            message: error?.response?.data?.message || "Error al cargar clientes"
+            message: error?.response?.data?.msg || "Error al cargar clientes"
         })
     }
     finally {
@@ -302,7 +302,7 @@ async function cargarProductos() {
     } catch (error) {
         $q.notify({
             type: "negative",
-            message: error?.response?.data?.message || "Error al cargar productos"
+            message: error?.response?.data?.msg || "Error al cargar productos"
         })
     }
     finally {
@@ -390,7 +390,7 @@ async function agregarVenta() {
         cargarVentas();
     } catch (error) {
         console.error("❌ Error agregar venta:", error.response?.data || error.message);
-        $q.notify({ type: "negative", message: error.response?.data?.message || "Error al agregar venta" });
+        $q.notify({ type: "negative", message: error.response?.data?.msg || "Error al agregar venta" });
     }
 }
 
@@ -401,8 +401,8 @@ async function active(venta) {
         $q.notify({ type: "positive", message: `Estado cambiado: ${venta.active ? "Inactiva ❌" : "Activa ✅"}` });
         cargarVentas();
     } catch (error) {
-        console.error("❌ Error actualizar estado:", error.response?.data || error.message);
-        $q.notify({ type: "negative", message: error.response?.data?.message || "Error al cambiar estado" });
+        console.error("❌ Error actualizar estado:", error.response?.data || error.msg);
+        $q.notify({ type: "negative", message: error.response?.data?.msg || "Error al cambiar estado" });
     }
 }
 
