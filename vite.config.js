@@ -19,5 +19,6 @@ export default defineConfig({
         new URL('./src/styles/quasar-variables.sass', import.meta.url)
       )
     })
-  ]
+  ],
+  base: "https://lapulga1828.github.io/Ev-Ventas/"
 })
